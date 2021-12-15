@@ -35,11 +35,11 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    prompt.style['display'] = 'block';
+    prompt.style.display = 'block';
 });
 
 window.addEventListener('appinstalled', () => {    
-    prompt.style['display'] = 'none';
+    prompt.style.display = 'none';
     deferredPrompt = null;
 });
 
@@ -48,10 +48,10 @@ prompt.addEventListener('click', function(event) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then(result => {
             console.log("result of user prompt", result);
-            prompt.style['display'] = 'none';
+            prompt.style.display = 'none';
             deferredPrompt = null
         });        
     } else {
-        prompt.style['display'] = 'none';
+        prompt.style.display = 'none';
     }
 });
