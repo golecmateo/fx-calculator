@@ -44,7 +44,7 @@ window.addEventListener('appinstalled', () => {
 });
 
 prompt.addEventListener('click', function(event) {
-    if (event.target.dataset.id == 'install-yes' && deferredPrompt) {
+    if (event.target.getAttribute("data-id") == 'install-yes' && deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then(result => {
             console.log("result of user prompt", result);
