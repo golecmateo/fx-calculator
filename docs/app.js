@@ -1,4 +1,3 @@
-// const fixerUri = 'https://data.fixer.io/api/latest?base=EUR&symbols=USD,SEK,CHF&access_key=API_KEY';
 const fixerUri = "fixer.json";
 
 async function convert(inputValue, inputCurrency, outputCurrency) {
@@ -30,8 +29,8 @@ document.querySelector('button').addEventListener('click', async () => {
     document.querySelector('[name="output-value"]').value = round(outputValue);            
 });
 
-const button = document.querySelector('main > button');
-const prompt = document.querySelector('prompt');
+const button = document.querySelector('app > button');
+const prompt = document.querySelector('article');
 
 function updatePWADisplayMode() {
     let displayMode = "browser";
