@@ -34,7 +34,7 @@ const prompt = document.querySelector('article');
 
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     deferredPrompt = e;
     prompt.style['display'] = 'block';
 });
@@ -47,7 +47,6 @@ window.addEventListener('appinstalled', () => {
 prompt.addEventListener('click', function(event) {
     if (event.target.dataset.id == 'install-yes' && deferredPrompt) {
         deferredPrompt.prompt();
-        BeforeInstallPromptEvent.prompt()
         deferredPrompt.userChoice.then(result => {
             console.log("result of user prompt", result);
             prompt.style['display'] = 'none';
