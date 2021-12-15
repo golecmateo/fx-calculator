@@ -29,7 +29,7 @@ document.querySelector('button').addEventListener('click', async () => {
     document.querySelector('[name="output-value"]').value = round(outputValue);            
 });
 
-const button = document.querySelector('app > button');
+const button = document.querySelector('button');
 const prompt = document.querySelector('article');
 
 let deferredPrompt;
