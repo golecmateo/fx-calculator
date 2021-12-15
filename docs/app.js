@@ -34,7 +34,7 @@ const prompt = document.querySelector('article');
 
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     deferredPrompt = e;
     prompt.style['display'] = 'block';
 });
