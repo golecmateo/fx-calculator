@@ -1,5 +1,5 @@
 # Fx Calculator
 
-![Lighthouse Result](lighthouse-result.png "Lighthouse Result")
+![Lighthouse Result](lighthouse.png "Lighthouse Result")
 
-> Open PWA [here](https://stefanhuber.github.io/fx-calculator/)
+> Open PWA [here](https://golecmateo.github.io/fx-calculator/)
