@@ -43,15 +43,15 @@ window.addEventListener('appinstalled', () => {
     deferredPrompt = null;
 });
 
-prompt.addEventListener('click', function(event) {
+prompt.addEventListener('click', (event => {
     if (event.target.getAttribute("data-id") == 'install-yes' && deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then(result => {
             console.log("result of user prompt", result);
             prompt.style.display = 'none';
-            deferredPrompt = null
+            deferredPrompt = null;
         });        
     } else {
         prompt.style.display = 'none';
     }
-});
+}));
