@@ -1,0 +1,28 @@
+{
+    "name": "Fx Calculator",
+    "short_name": "Fx Calc",
+    "display": "standalone",
+    "start_url": "/fx-calculator/index.html",
+    "scope": "/",
+    "background_color": "#cfc",
+    "theme_color": "#cfc",
+    "description": "Simple Fx Calculator based on fixer.io API",
+    "icons": [
+        {
+            "src": "icon512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }, {
+            "src": "icon16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "badge"
+        }, {
+            "src": "maskable-icon512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

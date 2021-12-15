@@ -1,0 +1,41 @@
+body {
+    margin:0;
+    background:#ccffcc;
+    font-family: sans-serif;
+}
+h1 {
+    text-align: center;
+}
+main {
+    padding:10px;
+}
+section {
+    border:1px solid black;
+    padding:5px;
+    margin-bottom:5px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section label {
+    flex: 0 0 60px;
+}
+section input {           
+    flex: 1 1 100%;
+    padding: 4px;   
+    border:1px solid #aaa;
+    border-right: none;
+    outline:none;
+}
+section select {
+    flex: 0 0 60px;
+    padding:3px;
+    border:1px solid #aaa;
+    border-left: none;
+}
+button {
+    border:1px solid black;
+    background:white;
+    width:100%;
+    padding:8px;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#ccffcc">
+    <meta name="description" content="Fx Calculator Demo PWA">
+
+    <title>Fx Calculator PWA</title>    
+
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icon192.png">
+    <link rel="shortcut icon" type="image/png" href="icon16.png"/>
+
+    <script async src="app.js"></script>
+
+    <style>
+        body {
+            margin:0;
+            background:#ccffcc;
+            font-family: sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        main {
+            padding:10px;
+        }
+        section {
+            border:1px solid black;
+            padding:5px;
+            margin-bottom:5px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        section label {
+            flex: 0 0 60px;
+        }
+        section input {           
+            flex: 1 1 100%;
+            padding: 4px;   
+            border:1px solid #aaa;
+            border-right: none;
+            outline:none;
+        }
+        section select {
+            flex: 0 0 60px;
+            padding:3px;
+            border:1px solid #aaa;
+            border-left: none;
+        }
+        button {
+            border:1px solid black;
+            background:white;
+            width:100%;
+            padding:8px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Fx Calculator</h1>
+        <section>
+            <label for="input-value">Input</label>
+            <input id="input-value" type="number" name="input-value">
+            <select title="Input Currency" name="input-currency"></select>
+        </section>
+        <section>
+            <label for="output-value">Output</label>
+            <input id="output-value" name="output-value" readonly>
+            <select title="Output Currency" id="output-currency" name="output-currency"></select>
+        </section>
+        <button>Calculate</button>
+    </main>
+
+    <script>        
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .catch(console.error);
+        }
+    </script>
+</body>
+</html>
