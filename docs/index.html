@@ -13,13 +13,6 @@
     <link rel="apple-touch-icon" href="icon192.png">
     <link rel="shortcut icon" type="image/png" href="icon16.png"/>
     <link rel="stylesheet" href="style.css">
-    <script>        
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .catch(console.error);
-        }
-    </script>
-    <script async src="app.js"></script>
 
 </head>
 <body>
@@ -38,6 +31,15 @@
         <button>Calculate</button>
     </main>
 
+
+    <script>        
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .catch(console.error);
+        }
+    </script>
+    <script async src="app.js"></script>
+    
      <article>
         <h2>Install App</h2>
         <p>Do you want to install the app locally and for offline use?</p>
