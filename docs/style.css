@@ -40,14 +40,14 @@ button {
     padding:8px;
 }
 
-.button:hover {
-    background-color: grey;
+button:hover {
+    background-color: #DCDCDC;
 }
 
-.button:active {
-  background-color: grey;
-  box-shadow: 0 5px black;
-  transform: translateY(4px);
+button:active {
+  background-color: #DCDCDC;
+  box-shadow: 0 2px black;
+  transform: translateY(2px);
 }
 
 article {
