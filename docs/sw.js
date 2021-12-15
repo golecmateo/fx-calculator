@@ -27,40 +27,58 @@ self.addEventListener('fetch', (event) => {
     );
 });
 
-// Initialize deferredPrompt for use later to show browser install prompt.
-let deferredPrompt;
+const prompt = document.querySelector('.prompt');
+const installButton = prompt.querySelector('.prompt__install');
+const closeButton = prompt.querySelector('.prompt__close');
+let installEvent;
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  showInstallPromotion();
-  // Optionally, send analytics event that PWA install promo was shown.
-  console.log(`'beforeinstallprompt' event was fired.`);
+function getVisited() {
+  return localStorage.getItem('install-prompt');
+}
+
+function setVisited() {
+  localStorage.setItem('install-prompt', true);
+}
+
+// this event will only fire if the user does not have the pwa installed
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+
+  // if no localStorage is set, first time visitor
+  if (!getVisited()) {
+    // show the prompt banner
+    prompt.style.display = 'block';
+
+    // store the event for later use
+    installEvent = event;
+  }
 });
 
-const installApp = document.getElementById('installApp');
+installButton.addEventListener('click', () => {
+  // hide the prompt banner
+  prompt.style.display = 'none';
 
-installApp.addEventListener('click', async () => {
-    // Hide the app provided install promotion
-    hideInstallPromotion();
-    // Show the install prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    const { outcome } = await deferredPrompt.userChoice;
-    // Optionally, send analytics event with outcome of user choice
-    console.log(`User response to the install prompt: ${outcome}`);
-    // We've used the prompt, and can't use it again, throw it away
-    deferredPrompt = null;
-  });
+  // trigger the prompt to show to the user
+  installEvent.prompt();
 
-  window.addEventListener('appinstalled', () => {
-    // Hide the app-provided install promotion
-    hideInstallPromotion();
-    // Clear the deferredPrompt so it can be garbage collected
-    deferredPrompt = null;
-    // Optionally, send analytics event to indicate successful install
-    console.log('PWA was installed');
+  // check what choice the user made
+  installEvent.userChoice.then((choice) => {
+    // if the user declined, we don't want to show the button again
+    // set localStorage to true
+    if (choice.outcome !== 'accepted') {
+      setVisited();
+    }
+
+    installEvent = null;
   });
+});
+
+closeButton.addEventListener('click', () => {
+  // set localStorage to true
+  setVisited();
+
+  // hide the prompt banner
+  prompt.style.display = 'none';  
+
+  installEvent = null;
+});
