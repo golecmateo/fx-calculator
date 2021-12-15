@@ -8,11 +8,12 @@
     <meta name="description" content="Fx Calculator Demo PWA">
 
     <title>Fx Calculator</title>    
-
+    
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="apple-touch-icon" href="icon192.png">
     <link rel="shortcut icon" type="image/png" href="icon16.png"/>
     <link rel="stylesheet" href="style.css">
+    <script async src="app.js"></script>
 
 </head>
 <body>
@@ -29,16 +30,13 @@
             <select title="Output Currency" id="output-currency" name="output-currency"></select>
         </section>
         <button>Calculate</button>
-    </main>
-
-
+    
     <script>        
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
-                .catch(console.error);
+               // .catch(console.error);
         }
     </script>
-    <script async src="app.js"></script>
     
      <article>
         <h2>Install App</h2>
@@ -46,6 +44,7 @@
         <button data-id="install-yes">Yes</button>
         <button data-id="install-no">No</button>
       </article>
+    </main>
 
 </body>
 </html>
