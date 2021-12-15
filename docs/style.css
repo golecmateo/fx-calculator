@@ -39,3 +39,9 @@ button {
     width:100%;
     padding:8px;
 }
+
+.prompt {
+    display: none;
+    background:black;
+    color: white;
+  }

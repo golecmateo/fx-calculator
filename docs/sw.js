@@ -39,11 +39,11 @@ window.addEventListener('beforeinstallprompt', (e) => {
   showInstallPromotion();
   // Optionally, send analytics event that PWA install promo was shown.
   console.log(`'beforeinstallprompt' event was fired.`);
-  // add button to home screen
-  btnAdd.style.display = 'block';
 });
 
-buttonInstall.addEventListener('click', async () => {
+const installApp = document.getElementById('installApp');
+
+installApp.addEventListener('click', async () => {
     // Hide the app provided install promotion
     hideInstallPromotion();
     // Show the install prompt
@@ -54,4 +54,13 @@ buttonInstall.addEventListener('click', async () => {
     console.log(`User response to the install prompt: ${outcome}`);
     // We've used the prompt, and can't use it again, throw it away
     deferredPrompt = null;
+  });
+
+  window.addEventListener('appinstalled', () => {
+    // Hide the app-provided install promotion
+    hideInstallPromotion();
+    // Clear the deferredPrompt so it can be garbage collected
+    deferredPrompt = null;
+    // Optionally, send analytics event to indicate successful install
+    console.log('PWA was installed');
   });
