@@ -30,8 +30,8 @@ document.querySelector('button').addEventListener('click', async () => {
 });
 
 const prompt = document.querySelector('article');
-
 let deferredPrompt;
+
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
