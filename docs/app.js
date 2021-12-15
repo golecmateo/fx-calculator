@@ -34,9 +34,10 @@ const prompt = document.querySelector('article');
 
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    prompt.style['display'] = 'block';
+    e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
+    deferredPrompt = e; // Stash the event so it can be triggered later.
+    showInstallPromotion();
+    prompt.style['display'] = 'block'; // Update UI notify the user they can install the PWA
 });
 
 window.addEventListener('appinstalled', () => {    
