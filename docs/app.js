@@ -47,6 +47,7 @@ window.addEventListener('appinstalled', () => {
 prompt.addEventListener('click', function(event) {
     if (event.target.dataset.id == 'install-yes' && deferredPrompt) {
         deferredPrompt.prompt();
+        BeforeInstallPromptEvent.prompt()
         deferredPrompt.userChoice.then(result => {
             console.log("result of user prompt", result);
             prompt.style['display'] = 'none';
